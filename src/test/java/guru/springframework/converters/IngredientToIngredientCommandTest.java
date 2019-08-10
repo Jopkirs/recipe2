@@ -1,7 +1,6 @@
 package guru.springframework.converters;
 
 import guru.springframework.commands.IngredientCommand;
-import guru.springframework.commands.UnitOfMeasureCommand;
 import guru.springframework.domain.Ingredient;
 import guru.springframework.domain.Recipe;
 import guru.springframework.domain.UnitOfMeasure;
@@ -17,32 +16,32 @@ import static org.junit.Assert.*;
  */
 public class IngredientToIngredientCommandTest {
 
-    public static final Recipe RECIPE = new Recipe();
-    public static final BigDecimal AMOUNT = new BigDecimal("1");
-    public static final String DESCRIPTION = "Cheeseburger";
-    public static final Long UOM_ID = 2L;
-    public static final Long ID_VALUE = 1L;
+    private static final Recipe RECIPE = new Recipe();
+    private static final BigDecimal AMOUNT = new BigDecimal("1");
+    private static final String DESCRIPTION = "Cheeseburger";
+    private static final Long UOM_ID = 2L;
+    private static final Long ID_VALUE = 1L;
 
 
     private IngredientToIngredientCommand converter;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         converter = new IngredientToIngredientCommand(new UnitOfMeasureToUnitOfMeasureCommand());
     }
 
     @Test
-    public void testNullConvert() throws Exception {
+    public void testNullConvert() {
         assertNull(converter.convert(null));
     }
 
     @Test
-    public void testEmptyObject() throws Exception {
+    public void testEmptyObject() {
         assertNotNull(converter.convert(new Ingredient()));
     }
 
     @Test
-    public void testConvertNullUOM() throws Exception {
+    public void testConvertNullUOM() {
         //given
         Ingredient ingredient = new Ingredient();
         ingredient.setId(ID_VALUE);
@@ -62,7 +61,7 @@ public class IngredientToIngredientCommandTest {
     }
 
     @Test
-    public void testConvertWithUom() throws Exception {
+    public void testConvertWithUom() {
         //given
         Ingredient ingredient = new Ingredient();
         ingredient.setId(ID_VALUE);

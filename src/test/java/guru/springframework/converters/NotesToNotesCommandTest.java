@@ -9,17 +9,17 @@ import static org.junit.Assert.*;
 
 public class NotesToNotesCommandTest {
 
-    public static final Long ID_VALUE = new Long(1L);
-    public static final String RECIPE_NOTES = "Notes";
+    private static final Long ID_VALUE = 1L;
+    private static final String RECIPE_NOTES = "Notes";
     NotesToNotesCommand converter;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         converter = new NotesToNotesCommand();
     }
 
     @Test
-    public void convert() throws Exception {
+    public void convert() {
         //given
         Notes notes = new Notes();
         notes.setId(ID_VALUE);
@@ -35,12 +35,12 @@ public class NotesToNotesCommandTest {
     }
 
     @Test
-    public void testNull() throws Exception {
+    public void testNull() {
         assertNull(converter.convert(null));
     }
 
     @Test
-    public void testEmptyObject() throws Exception {
+    public void testEmptyObject() {
         assertNotNull(converter.convert(new Notes()));
     }
 }

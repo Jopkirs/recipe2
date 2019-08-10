@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Optional;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -21,7 +21,7 @@ public class UnitOfMeasureRepositoryIT {
     UnitOfMeasureRepository unitOfMeasureRepository;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
     }
 
     @Test

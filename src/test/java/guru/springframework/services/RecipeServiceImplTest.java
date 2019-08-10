@@ -23,7 +23,7 @@ import static org.mockito.Mockito.*;
  */
 public class RecipeServiceImplTest {
 
-    RecipeServiceImpl recipeService;
+    private RecipeServiceImpl recipeService;
 
     @Mock
     RecipeRepository recipeRepository;
@@ -35,14 +35,14 @@ public class RecipeServiceImplTest {
     RecipeCommandToRecipe recipeCommandToRecipe;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         MockitoAnnotations.initMocks(this);
 
         recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
     }
 
     @Test
-    public void getRecipeByIdTest() throws Exception {
+    public void getRecipeByIdTest() {
         Recipe recipe = new Recipe();
         recipe.setId(1L);
         Optional<Recipe> recipeOptional = Optional.of(recipe);
@@ -57,7 +57,7 @@ public class RecipeServiceImplTest {
     }
 
     @Test
-    public void getRecipesTest() throws Exception {
+    public void getRecipesTest() {
 
         Recipe recipe = new Recipe();
         Set<Recipe> recipesData = new HashSet<>();

@@ -12,14 +12,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class RecipeServiceIT {
 
-    public static final String NEW_DESCRIPTION = "New Description";
+    private static final String NEW_DESCRIPTION = "New Description";
 
     @Autowired
     RecipeService recipeService;

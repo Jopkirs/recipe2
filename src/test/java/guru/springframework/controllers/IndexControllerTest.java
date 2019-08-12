@@ -74,4 +74,5 @@ public class IndexControllerTest {
         assertEquals(2, setInControl.size());
 
     }
+
 }

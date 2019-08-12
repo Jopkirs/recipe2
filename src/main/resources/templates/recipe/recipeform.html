@@ -21,7 +21,7 @@
 <div class="container-fluid" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
-            <form  th:object="${recipe}" th:action="@{/recipe/}" method="post">
+            <form th:object="${recipe}" th:action="@{/recipe/}" method="post">
                 <input type="hidden" th:field="*{id}"/>
                 <div class="pannel-group">
                     <div class="panel panel-primary">
@@ -71,6 +71,13 @@
                                 </div>
                                 <div class="col-md-3 form-group">
                                     <label>Difficulty:</label>
+                                    <select class="form-control" th:field="*{difficulty}">
+                                        <option th:each="difficultyValue : ${T(guru.springframework.domain.Difficulty).values()}"
+                                                th:value="${difficultyValue.name()}"
+                                                th:text="${difficultyValue.name()}">
+                                            val
+                                        </option>
+                                    </select>
                                     <label>
                                         <select class="form-control">
                                             <option>Easy</option>
@@ -109,7 +116,8 @@
                                     <h1 class="panel-title">Ingredients</h1>
                                 </div>
                                 <div class="col-md-1">
-                                    <a class="btn btn-default" href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}" role="button">View</a>
+                                    <a class="btn btn-default" href="#"
+                                       th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}" role="button">View</a>
                                 </div>
                             </div>
                         </div>
@@ -151,7 +159,8 @@
                             <div class="row">
                                 <div class="col-md-12 form-group">
                                     <label>
-                                        <textarea class="form-control" rows="3" th:field="*{notes.recipeNotes}"></textarea>
+                                        <textarea class="form-control" rows="3"
+                                                  th:field="*{notes.recipeNotes}"></textarea>
                                     </label>
                                 </div>
                             </div>

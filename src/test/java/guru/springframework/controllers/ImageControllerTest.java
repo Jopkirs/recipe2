@@ -35,7 +35,9 @@ public class ImageControllerTest {
         MockitoAnnotations.initMocks(this);
 
         imageController = new ImageController(imageService, recipeService);
-        mockMvc = MockMvcBuilders.standaloneSetup(imageController).build();
+        mockMvc = MockMvcBuilders.standaloneSetup(imageController)
+                .setControllerAdvice(new ControllerExceptionHandler())
+                .build();
     }
 
     @Test
@@ -96,5 +98,15 @@ public class ImageControllerTest {
         byte[] responceBytes = response.getContentAsByteArray();
 
         assertEquals(s.getBytes().length, responceBytes.length);
+    }
+
+
+    @Test
+    public void testGetBadRequest() throws Exception {
+//        when(recipeService.findById(anyLong())).thenThrow(NotFoundException.class);
+
+        mockMvc.perform(get("/recipe/asdfds/image"))
+                .andExpect(status().isBadRequest())
+                .andExpect(view().name("400error"));
     }
 }

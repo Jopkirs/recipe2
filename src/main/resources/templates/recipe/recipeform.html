@@ -38,6 +38,7 @@
                                      ? 'col-md-3 form-group has-error' : 'col-md-3 form-group'">
                                     <label>Recipe Description:</label>
                                     <label>
+                                        <label th:text="#{recipe.description}">Recipe Description d:</label>
                                         <input type="text" class="form-control" th:field="*{description}" th:error = "has-error"/>
                                         <span class="help-block" th:if="${#fields.hasErrors('description')}">
                                             <ul>
